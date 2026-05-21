@@ -1,20 +1,42 @@
-from flask import Flask, render_template
-
+from flask import Flask, request, render_template_string
 
 app = Flask(__name__)
 
-@app.route("/")
-def questao1():
-    return render_template("questao1.html", name ="pedro da silva me mimei camilo brum souza pinto cum nery alvez alvares cornelio anthony ansur gomide pereira braulio coelho do gordo paiva cachorro macaco marco cobra duarte braga oliveira perceval seleme proti susu andradas antonio carlos vargas muniz elias leite ")
+def show_the_login_form():
+    return render_template_string("""
+        <h2>Login</h2>
+        <form method="POST">
+            <input type="text" name="usuario" placeholder="Usuário"><br><br>
+            <input type="password" name="senha" placeholder="Senha"><br><br>
+            <button type="submit">Entrar</button>
+        </form>
+    """)
 
-@app.route("/questao2")
-def questao2():
-    dados = [{"nome": "lucca", "idade":17}]
+def do_the_login():
+    usuario = request.form.get('usuario')
+    senha = request.form.get('senha')
+    UsuarioLista = [
+        {"nome": "Lucca", "senha": "22400486"},
+        {"nome": "Antonio", "senha": "cotemig2026"},
+        {"nome": "Janaina", "senha": "cotemig2026"},
+        {"nome": "dolga", "senha": "cotemig2026"}
+    ]
 
-    return render_template("questao2.html", alunos=dados)
+    for u in UsuarioLista:
+        if u['nome'] == usuario and u['senha'] == senha:
+         return f"<h1>Bem-vindo, {usuario}!</h1>"
     
+    return "<h1> Login invalido! </h1>"
+ 
 
-
+@app.route('/', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return do_the_login()
+    else:
+        return show_the_login_form()
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+# site de consulta https://flask.palletsprojects.com/en/stable/quickstart/#html-escaping
