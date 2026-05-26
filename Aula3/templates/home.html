@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução ao Flask - Framework Python</title>
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #384d54;
+            --light-bg: #f8f9fa;
+            --text-color: #333333;
+            --code-bg: #272822;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem;
+            text-align: center;
+            position: sticky;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 0.5rem;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: "Courier New", Courier, monospace;
+            margin: 1rem 0;
+        }
+
+        .command {
+            color: #a6e22e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Aprenda Flask</h1>
+        <p>O micro-framework Python leve, flexível e minimalista para a web</p>
+    </header>
+
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#vantagens">Vantagens</a>
+        <a href="#instalacao">Instalação</a>
+        <a href="#exemplo">Primeiro Código</a>
+    </nav>
+
+    <div class="container">
+        
+        <section id="sobre">
+            <h2>O que é o Flask?</h2>
+            <p>O <strong>Flask</strong> é um micro-framework escrito em Python com o objetivo de facilitar a criação de aplicações web e APIs. Ele é categorizado como um "micro-framework" porque não exige ferramentas ou bibliotecas específicas, mantendo o núcleo simples, mas altamente expansível através de extensões comunitárias.</p>
+        </section>
+
+        <section id="vantagens">
+            <h2>Principais Vantagens</h2>
+            <ul>
+                <li><strong>Simplicidade:</strong> Código limpo, fácil de entender e ideal para iniciantes.</li>
+                <li><strong>Flexibilidade:</strong> Permite escolher qual banco de dados e ferramentas de validação utilizar.</li>
+                <li><strong>Documentação Excelente:</strong> Uma comunidade ativa com guias e tutoriais completos.</li>
+                <li><strong>Mecanismo de Templates:</strong> Utiliza o Jinja2 integrado para renderizar HTML dinâmico.</li>
+            </ul>
+        </section>
+
+        <section id="instalacao">
+            <h2>Como Instalar</h2>
+            <p>A instalação é extremamente simples e feita diretamente através do terminal utilizando o gerenciador de pacotes do Python (pip):</p>
+            <pre><span class="command">pip install flask</span></pre>
+        </section>
+
+        <section id="exemplo">
+            <h2>Uma Aplicação Mínima</h2>
+            <p>Veja como é fácil criar uma rota e rodar um servidor local básico com Flask:</p>
+            <pre>
+<span style="color: #f92672;">from</span> flask <span style="color: #f92672;">import</span> Flask
+
+app = Flask(__name__)
+
+<span style="color: #66d9ef;">@app.route</span>(<span style="color: #e6db74;">"/"</span>)
+<span style="color: #f92672;">def</span> <span style="color: #a6e22e;">home</span>():
+    <span style="color: #f92672;">return</span> <span style="color: #e6db74;">"&lt;h1&gt;Olá, Mundo! Este é o Flask funcionando.&lt;/h1&gt;"</span>
+
+<span style="color: #f92672;">if</span> __name__ == <span style="color: #e6db74;">"__main__"</span>:
+    app.run(debug=<span style="color: #66d9ef;">True</span>)
+            </pre>
+            <p>Salve o código acima como <code>app.py</code> e execute-o com o comando <code>python app.py</code> no terminal. Abra o navegador no endereço indicado para visualizar a mensagem.</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Criado para fins educativos sobre o ecossistema Python.</p>
+    </footer>
+
+</body>
+</html>
