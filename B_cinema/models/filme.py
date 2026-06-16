@@ -1,0 +1,15 @@
+from . import db
+from .base import ModeloBase
+
+
+class Filme(ModeloBase):
+    __tablename__ = "filmes"
+
+    titulo = db.Column(db.String(150), nullable=False)
+    duracao_min = db.Column(db.Integer)
+    classificacao = db.Column(db.String(5))
+    sessoes = db.relationship ("sessao", book_populates="filme")
+
+    @classmethod
+    def listar(cls):
+        return cls.query.order_by(cls.titulo).all()
