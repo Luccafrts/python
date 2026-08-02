@@ -1,0 +1,50 @@
+body {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.card {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* ---------------------------------------------------------------------
+   Modo escuro: classes aplicadas via JavaScript no <body>
+   (bg-dark / text-light, conforme pedido no exercício)
+--------------------------------------------------------------------- */
+body.bg-dark {
+    background-color: #121212 !important;
+}
+
+body.bg-dark .card,
+body.bg-dark footer {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    border-color: #333;
+}
+
+body.bg-dark .card-footer {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+}
+
+body.bg-dark .text-muted {
+    color: #adb5bd !important;
+}
+
+body.bg-dark .form-control,
+body.bg-dark .form-select {
+    background-color: #2a2a2a;
+    color: #f1f1f1;
+    border-color: #444;
+}
+
+body.bg-dark .dropdown-menu {
+    background-color: #2a2a2a;
+}
+
+body.bg-dark .dropdown-item {
+    color: #f1f1f1;
+}
+
+body.bg-dark .dropdown-item:hover {
+    background-color: #3a3a3a;
+}
